@@ -1,0 +1,35 @@
+﻿@page
+@{
+    ViewData["Title"] = "Create Event";
+}
+<h1>@ViewData["Title"]</h1>
+<div class="creatEvent-container">
+    </br>
+    <h2>Create Event</h2>
+    <form action="/create_event" method="post">
+        <input type="text" name="eventName" placeholder="Name of Event" required>
+        </br>
+        <input type="text" name="eventLocation" placeholder="Location" required>
+        </br>
+        <input type="text" name="age_restriction" placeholder="Age Restricion (#)" required>
+        </br>
+        <input type="text" name="description" placeholder="Description" required>
+        </br>
+        <input type="date" name="date_of_event" required>
+        </br>
+        <input type="email" name="email" placeholder="Email" required>
+        </br>
+        <input type="text" name="company_name" placeholder="Company Name">
+        </br>
+        <button type="submit">Create Event</button>
+        </br>
+    </form>
+</div>
+
+<div>
+    <form method="post" action="/SubmitTime">
+        <label for="timeInput">Select Time:</label>
+        <input type="time" id="timeInput" name="timeInput" required />
+        <button type="submit">Submit</button>
+    </form>
+</div> 

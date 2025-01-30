@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Home\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Posts\" />
   </ItemGroup>
