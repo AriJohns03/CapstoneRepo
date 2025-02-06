@@ -1,3 +1,4 @@
+using Capstone1.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +10,7 @@ builder.Services.AddRazorPages();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Register Entity Framework Core with SQL Server
-builder.Services.AddDbContext<MyDbContext>(options =>
+builder.Services.AddDbContext<AppDBContext>(options =>
     options.UseSqlServer(connectionString));
 
 // Add services to the container
