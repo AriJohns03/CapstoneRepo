@@ -5,7 +5,7 @@
 <h1>@ViewData["Title"]</h1>
 <div>
     <h2>Create Account</h2>
-    <form action="/create_account" method="post">
+    <form method="post">
         <input type="text" name="username" placeholder="Username" required>
         <!-- Set specific requirments for the username and password! -->
         <input type="password" name="password" placeholder="Password" required>
@@ -14,6 +14,7 @@
         <input type="date" name="dob" required>
         <input type="email" name="email" placeholder="Email" required>
         <input type="text" name="company_name" placeholder="Company Name">
-        <button type="submit">Create Account</button>
-    </form>
+        
+        <button type="submit" class="btn btn-primary">Create Account</button>
+        </form>
 </div>
