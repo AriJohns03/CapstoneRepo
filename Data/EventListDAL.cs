@@ -30,12 +30,13 @@ namespace Capstone1.Data
 
         public Event? GetEvent(int? id)
         {
-            throw new NotImplementedException();
+            Event? e = db.Events.Where(x => x.Id == id).FirstOrDefault();
+            return e;
         }
 
         public IEnumerable<Event> GetEvents()
         {
-            throw new NotImplementedException();
+            return db.Events;
         }
 
         public bool RemoveEvent(int? id)

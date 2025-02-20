@@ -18,6 +18,18 @@ namespace Capstone1.Controllers
         }
 
         [HttpGet]
+        public IActionResult EventCollection()
+        {
+            return View(dal.GetEvents());
+        }
+
+        [HttpPost]
+        public IActionResult EventCollection(IEnumerable<Event> events)
+        {
+            return View(dal.GetEvents());
+        }
+
+        [HttpGet]
         public IActionResult Add()
         {
             return View();

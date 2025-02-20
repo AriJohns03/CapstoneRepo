@@ -1,0 +1,39 @@
+﻿@using Capstone1.Models
+@model IEnumerable<Capstone1.Models.Event>
+
+
+<h2>View your profile here</h2>
+
+
+<br />
+<br />
+<br />
+<h1>Event List</h1>
+
+<br />
+<br />
+<br />
+<br />
+
+<h2>There is @Model.Count() events in the listing at the moment</h2>
+
+@if (Model == null)
+{
+    <h2>No Events Found</h2>
+}
+else
+{
+    @foreach(Event e in Model){
+    <br/>
+    <h3>Event ID: @e.Id</h3>
+    <h3>Event Name: @e.Name</h3>
+    <h3>Event Time: @e.Time</h3>
+    <h3>Event Date: @e.Date</h3>
+    <h3>Event Location: @e.Location</h3>
+    <h3>Event Age Restriction Year: @e.AgeRestriction</h3>
+    <h3>Event Description: @e.Description</h3>
+    <br/>
+    }
+}
+
+
