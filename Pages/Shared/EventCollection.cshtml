@@ -24,15 +24,15 @@
 else
 {
     @foreach(Event e in Model){
-    <br/>
-    <h3>Event ID: @e.Id</h3>
-    <h3>Event Name: @e.Name</h3>
-    <h3>Event Time: @e.Time</h3>
-    <h3>Event Date: @e.Date</h3>
-    <h3>Event Location: @e.Location</h3>
-    <h3>Event Age Restriction Year: @e.AgeRestriction</h3>
-    <h3>Event Description: @e.Description</h3>
-    <br/>
+        <div class="event-card">
+            <h3>@e.Name</h3>
+            <p><strong>Event ID:</strong> @e.Id</p>
+            <p><strong>Event Time:</strong> @e.Time</p>
+            <p><strong>Event Date:</strong> @e.Date</p>
+            <p><strong>Event Location:</strong> @e.Location</p>
+            <p><strong>Event Age Restriction:</strong> @e.AgeRestriction+</p>
+            <p><strong>Event Description:</strong> @e.Description</p>
+        </div>
     }
 }
 
