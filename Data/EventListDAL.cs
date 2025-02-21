@@ -44,12 +44,22 @@ namespace Capstone1.Data
             throw new NotImplementedException();
         }
 
+        public void RemoveUser(UserModel u)
+        {
+            throw new NotImplementedException();
+        }
+
         public void ReturnEvent(int id)
         {
             throw new NotImplementedException();
         }
 
         public bool UpdateEvent(Event eventt)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUser(UserModel u)
         {
             throw new NotImplementedException();
         }

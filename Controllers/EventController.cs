@@ -6,7 +6,7 @@ namespace Capstone1.Controllers
 {
     public class EventController : Controller
     {
-        IDataAccessLayer dal;
+        private IDataAccessLayer dal;
 
         public EventController(IDataAccessLayer indb) {
             dal = indb;
@@ -32,6 +32,7 @@ namespace Capstone1.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            Console.WriteLine("Hitting EventController Code Segment");
             return View();
         }
 
@@ -41,9 +42,8 @@ namespace Capstone1.Controllers
             if (ModelState.IsValid)
             {
                 dal.AddEvent(e);
-                
                 TempData["Message"] = e.Name + " event saved!";
-                return RedirectToAction("Index");
+                return RedirectToPage("/Index");
             }
             else
             {

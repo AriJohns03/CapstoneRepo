@@ -12,9 +12,9 @@ public class DatabaseService
         _connectionString = configuration.GetConnectionString("DefaultConnection");
     }
 
-    public async Task<List<User>> GetUsersAsync()
+    public async Task<List<UserModel>> GetUsersAsync()
     {
-        var users = new List<User>();
+        var users = new List<UserModel>();
 
         using var connection = new SqlConnection(_connectionString);
         await connection.OpenAsync();
@@ -25,7 +25,7 @@ public class DatabaseService
 
         while (await reader.ReadAsync())
         {
-            users.Add(new User
+            users.Add(new UserModel
             {
                 Id = reader.GetInt32(0),
                 FirstName = reader.GetString(1),

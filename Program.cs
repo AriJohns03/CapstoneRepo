@@ -23,6 +23,7 @@ namespace Capstone1
             builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddTransient<IDataAccessLayer, EventListDAL>();
+            builder.Services.AddTransient<UDataAccessLayer, UserListDAL>();
 
             builder.Services.AddSingleton<DatabaseService>();
 
@@ -46,8 +47,9 @@ namespace Capstone1
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Event}/{action=Index}"
+                pattern: "{controller}/{action=Index}"
             );
+
 
             app.MapStaticAssets();
             app.MapRazorPages()

@@ -17,7 +17,6 @@ namespace Capstone1.Models
         [Required]
         [EmailAddress]
         public string Email { get; set; }
-
         public string CompanyName { get; set; }
     }
 }

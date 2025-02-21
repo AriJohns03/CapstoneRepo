@@ -1,24 +1,47 @@
-﻿namespace Capstone1.Controllers;
-using Capstone1.Data;
+﻿using Capstone1.Data;
+using Capstone1.Interfaces;
+using Capstone1.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
-[ApiController]
-[Route("users")]
-public class UsersController : ControllerBase
+namespace Capstone1.Controllers
 {
-    private readonly DatabaseService _databaseService;
 
-    public UsersController(DatabaseService databaseService)
+    public class UserController : Controller
     {
-        _databaseService = databaseService;
-    }
+        private UDataAccessLayer dal;
 
-    [HttpGet]
-    public async Task<IActionResult> GetUsers()
-    {
-        var users = await _databaseService.GetUsersAsync();
-        return Ok(users);
+        public UserController(UDataAccessLayer indb)
+        {
+            dal = indb;
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(UserModel u)
+        {
+            if (ModelState.IsValid)
+            {
+                dal.AddUser(u);
+
+                TempData["Message"] = u.FirstName + " event saved!";
+                return RedirectToPage("/Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
     }
 }
 

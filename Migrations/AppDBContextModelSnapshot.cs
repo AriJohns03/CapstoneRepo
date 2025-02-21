@@ -56,7 +56,7 @@ namespace Capstone1.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("Capstone1.Models.User", b =>
+            modelBuilder.Entity("Capstone1.Models.UserModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
