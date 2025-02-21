@@ -22,7 +22,7 @@ namespace Capstone1.Data
                 return true;
 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 return false;
             }
@@ -41,27 +41,43 @@ namespace Capstone1.Data
 
         public bool RemoveEvent(int? id)
         {
-            throw new NotImplementedException();
-        }
+            Event? e = GetEvent(id);
+            try
+            {
+                db.Events.Remove(e);
+                db.SaveChanges();
+                return true;
 
-        public void RemoveUser(UserModel u)
-        {
-            throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
         public void ReturnEvent(int id)
-        {
-            throw new NotImplementedException();
+        { 
+            Event? g = GetEvent(id);
         }
 
         public bool UpdateEvent(Event eventt)
         {
-            throw new NotImplementedException();
+            try
+            {
+                db.Events.Update(eventt);
+                db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
-        public void UpdateUser(UserModel u)
+        public IEnumerable<Event> SearchEvents(string key)
         {
-            throw new NotImplementedException();
+            return (GetEvents().Where(x => x.Name.ToUpper().Contains(key.ToUpper())));
         }
     }
 }

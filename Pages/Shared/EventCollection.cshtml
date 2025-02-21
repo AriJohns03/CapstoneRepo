@@ -24,15 +24,8 @@
 else
 {
     @foreach(Event e in Model){
-        <div class="event-card">
-            <h3>@e.Name</h3>
-            <p><strong>Event ID:</strong> @e.Id</p>
-            <p><strong>Event Time:</strong> @e.Time</p>
-            <p><strong>Event Date:</strong> @e.Date</p>
-            <p><strong>Event Location:</strong> @e.Location</p>
-            <p><strong>Event Age Restriction:</strong> @e.AgeRestriction+</p>
-            <p><strong>Event Description:</strong> @e.Description</p>
-        </div>
+        <partial name="_EventPartialView.cshtml" for="@e" />
+
     }
 }
 

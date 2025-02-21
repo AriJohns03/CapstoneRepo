@@ -16,9 +16,9 @@ else
     <h3>Event Description: @Model.Description</h3>
     <br />
 
-    <a asp-controller="Game" asp-action="Edit" asp-route-id="@Model.Id"
+    <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id"
        class="btn btn-primary mx-2"><i class="bi bi-pencil-square"></i> Edit</a>
-    <a onclick="alert('You are deleting this event')" asp-controller="Game" asp-action="Delete" asp-route-id="@Model.Id"
+    <a onclick="alert('You are deleting this event')" asp-controller="Event" asp-action="Delete" asp-route-id="@Model.Id"
        class="btn btn-secondary mx-2"><i class="bi bi-trash"></i> Delete</a>
 
     <br />

@@ -1,0 +1,60 @@
+﻿@model Capstone1.Models.Event
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "_Layout";
+}
+<!--EDITING THE EVENT THAT WAS MADE-->
+<h1>Edit Event</h1>
+
+<form asp-controller="Event" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Event</h2>
+            <hr />
+            <br />
+            <div asp-validation-summary="All" class="error-message">
+            </div>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Name" style="color: black;">Name</label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="error-message"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Time" style="color: black;">Time</label>
+            <input asp-for="Time" class="form-control" type="time" />
+            <span asp-validation-for="Time" class="error-message"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Date" style="color: black;">Date</label>
+            <input asp-for="Date" class="form-control" type="date" />
+            <span asp-validation-for="Date" class="error-message"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Location" style="color: black;">Location</label>
+            <input asp-for="Location" class="form-control" />
+            <span asp-validation-for="Location" class="error-message"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="AgeRestriction" style="color: black;">Age Restriction</label>
+            <input asp-for="AgeRestriction" class="form-control" />
+            <span asp-validation-for="AgeRestriction" class="error-message"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" style="color: black;">Description</label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="error-message"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Event</button>
+        <a asp-controller="Event" asp-action="EventCollection" class="btn btn-secondary">Back to Event Collection</a>
+        <div name="lblMsg" class="text-danger">
+            @ViewData["Error"]
+        </div>
+    </div>
+
+</form>
+

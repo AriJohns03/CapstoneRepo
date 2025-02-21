@@ -32,7 +32,6 @@ namespace Capstone1.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            Console.WriteLine("Hitting EventController Code Segment");
             return View();
         }
 
@@ -51,5 +50,54 @@ namespace Capstone1.Controllers
             }
         }
 
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            Console.WriteLine(id);
+            Console.WriteLine("hitting edit code-------");
+            if (id == null)
+            {
+                ViewData["Error"] = "Event was not provided";
+                return View();
+            }
+            else
+            {
+                Event? ev = dal.GetEvent(id);
+                if (ev == null)
+                {
+                    ViewData["Error"] = "The event id does not exist";
+                }
+                return View(ev);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Event e)
+        {
+            dal.UpdateEvent(e);
+            TempData["Message"] = "Event updated";
+            return RedirectToAction("EventCollection", "Event");
+        }
+
+
+        public IActionResult Delete(int? id)
+        {
+            Event e = dal.GetEvent(id);
+            if (dal.RemoveEvent(id))
+            {
+                TempData["Message"] = "Event " + e.Name + " Deleted";
+            }
+            else
+            {
+                TempData["Message"] = "Event Unsuccessfully Deleted";
+            }
+            return RedirectToAction("EventCollection", "Event");
+        }
+
+        public IActionResult ReturnEvent(int id)
+        {
+            dal.ReturnEvent(id);
+            return Redirect("EventsCollection");
+        }
     }
 }
