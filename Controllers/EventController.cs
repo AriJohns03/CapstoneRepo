@@ -94,6 +94,16 @@ namespace Capstone1.Controllers
             return RedirectToAction("EventCollection", "Event");
         }
 
+        [HttpPost]
+        public IActionResult Search(string inSearch)
+        {
+            if (string.IsNullOrEmpty(inSearch))
+            {
+                return RedirectToAction("EventCollection", "Event");
+            }
+            return View("EventCollection", dal.SearchEvents(inSearch));
+        }
+
         public IActionResult ReturnEvent(int id)
         {
             dal.ReturnEvent(id);

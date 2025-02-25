@@ -10,5 +10,6 @@ namespace Capstone1.Interfaces
         bool UpdateEvent(Event eventt);
         Event? GetEvent(int? id);
         void ReturnEvent(int id);
+        IEnumerable<Event> SearchEvents(string inSearch);
     }
 }

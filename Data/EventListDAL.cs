@@ -79,5 +79,6 @@ namespace Capstone1.Data
         {
             return (GetEvents().Where(x => x.Name.ToUpper().Contains(key.ToUpper())));
         }
+
     }
 }
