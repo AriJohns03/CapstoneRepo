@@ -1,9 +1,11 @@
 ﻿using Capstone1.Interfaces;
 using Capstone1.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Capstone1.Controllers
 {
+    [Authorize]
     public class EventController : Controller
     {
         private IDataAccessLayer dal;

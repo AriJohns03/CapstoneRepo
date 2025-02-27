@@ -8,5 +8,7 @@ namespace Capstone1.Interfaces
         void RemoveUser(UserModel u);
         void UpdateUser(UserModel u);
         void DeleteUser(int? id);
+        UserModel? GetUserByUsername(string username);
+
     }
 }

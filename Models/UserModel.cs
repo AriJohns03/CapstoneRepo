@@ -21,22 +21,11 @@ namespace Capstone1.Models
         [Required]
         public string Username { get; set; }
         [Required]
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
+        [Required]
+        public string Role { get; set; } = "User"; // Default role
 
-        public UserModel()
-        {
-            
-        }
-
-        public UserModel(string FirstName, string LastName, DateTime DateOfBirth, string Email, string CompanyName, string Username, string Password)
-        {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.DateOfBirth = DateOfBirth;
-            this.Email = Email;
-            this.CompanyName = CompanyName;
-            this.Username = Username;
-            this.Password = Password;
-        }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow; // Track user creation
     }
+
 }

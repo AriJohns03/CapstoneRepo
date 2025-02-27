@@ -1,4 +1,4 @@
-﻿@model Capstone1.Models.UserModel
+﻿@model AddModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "_Layout";
@@ -15,39 +15,33 @@
                     </div>
                 </div>
             <div class="mb-3">
-            <label asp-for="Username" style="color: black;">Username</label>
-                <input asp-for="Username" class="form-control" />
-                <span asp-validation-for="Username" class="error-message"></span>
+            <div class="form-group">
+                <label>Username</label>
+                <input asp-for="Input.Username" class="form-control" required />
             </div>
-            <div class="mb-3">
-            <label asp-for="Password" style="color: black;">Password</label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="error-message"></span>
+            <div class="form-group">
+                <label>Password</label>
+                <input asp-for="Input.Password" type="password" class="form-control" required />
             </div>
-            <div class="mb-3">
-            <label asp-for="FirstName" style="color: black;">First Name</label>
-                <input asp-for="FirstName" class="form-control" />
-                <span asp-validation-for="FirstName" class="error-message"></span>
+            <div class="form-group">
+                <label>First Name</label>
+                <input asp-for="Input.FirstName" class="form-control" required />
             </div>
-            <div class="mb-3">
-            <label asp-for="LastName" style="color: black;">Last Name</label>
-                <input asp-for="LastName" class="form-control" />
-                <span asp-validation-for="LastName" class="error-message"></span>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input asp-for="Input.LastName" class="form-control" required />
             </div>
-            <div class="mb-3">
-            <label asp-for="DateOfBirth" style="color: black;">Date of Birth</label>
-                <input asp-for="DateOfBirth" class="form-control" />
-                <span asp-validation-for="DateOfBirth" class="error-message"></span>
+            <div class="form-group">
+                <label>Date Of Birth</label>
+                <input asp-for="Input.DateOfBirth" class="form-control" required />
             </div>
-            <div class="mb-3">
-            <label asp-for="Email" style="color: black;">Email</label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="error-message"></span>
+            <div class="form-group">
+                <label>Email</label>
+                <input asp-for="Input.Email" class="form-control" required />
             </div>
-            <div class="mb-3">
-            <label asp-for="CompanyName" style="color: black;">Company Name</label>
-                <input asp-for="CompanyName" class="form-control" />
-                <span asp-validation-for="CompanyName" class="error-message"></span>
+            <div class="form-group">
+                <label>Company Name</label>
+                <input asp-for="Input.CompanyName" class="form-control" required />
             </div>
             <button type="submit" class="btn btn-primary">Create Account</button>
 

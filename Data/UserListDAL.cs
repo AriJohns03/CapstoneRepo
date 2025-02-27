@@ -1,5 +1,6 @@
 ﻿using Capstone1.Interfaces;
 using Capstone1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Capstone1.Data
 {
@@ -31,6 +32,13 @@ namespace Capstone1.Data
         {
             throw new NotImplementedException();
         }
+
+        public UserModel? GetUserByUsername(string username)
+        {
+            return db.Users.FirstOrDefault(u => u.Username == username);
+        }
+
+
 
         public void RemoveUser(UserModel u)
         {
