@@ -35,9 +35,6 @@ namespace Capstone1
             builder.Services.AddDbContext<AppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             builder.Services.AddTransient<IDataAccessLayer, EventListDAL>();
-            builder.Services.AddTransient<UDataAccessLayer, UserListDAL>();
-
-            builder.Services.AddSingleton<DatabaseService>();
 
             // Register Authentication & Authorization Services
             builder.Services.AddScoped<AuthService>();

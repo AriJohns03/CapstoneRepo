@@ -48,3 +48,8 @@
 
         </div>
     </form>
+
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="text-danger">@Model.Message</p>
+}

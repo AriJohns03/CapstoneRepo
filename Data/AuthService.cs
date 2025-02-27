@@ -17,13 +17,25 @@ public class AuthService
         _jwtService = jwtService;
     }
 
-    public async Task<string> RegisterUser(string username, string password)
+    public async Task<string> RegisterUser(string firstName, string lastName, string email, DateTime dateOfBirth, string companyName, string username, string password)
     {
         if (await _context.Users.AnyAsync(u => u.Username == username))
             return "User already exists";
 
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
-        _context.Users.Add(new UserModel { Username = username, PasswordHash = hashedPassword, Role = "User" });
+        var newUser = new User
+        {
+            FirstName = firstName,
+            LastName = lastName,
+            Email = email,
+            DateOfBirth = dateOfBirth,
+            CompanyName = companyName,
+            Username = username,
+            PasswordHash = hashedPassword,
+            Role = "User"
+        };
+
+        _context.Users.Add(newUser);
         await _context.SaveChangesAsync();
 
         return "User registered successfully";

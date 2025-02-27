@@ -13,9 +13,9 @@ public class JwtService
 
     public JwtService(IConfiguration config)
     {
-        _secret = config["Jwt:Key"];
-        _issuer = config["Jwt:Issuer"];
-        _audience = config["Jwt:Audience"];
+        _secret = config["Jwt:Key"] ?? throw new ArgumentNullException("Jwt:Key is missing in configuration.");
+        _issuer = config["Jwt:Issuer"] ?? throw new ArgumentNullException("Jwt:Issuer is missing in configuration.");
+        _audience = config["Jwt:Audience"] ?? throw new ArgumentNullException("Jwt:Audience is missing in configuration.");
     }
 
     public string GenerateToken(string username, string role)

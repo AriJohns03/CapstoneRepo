@@ -1,0 +1,11 @@
+﻿@page
+@model DashboardModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<h2>Welcome, @Model.Username!</h2>
+
+<p>This is a protected area. You have successfully logged in.</p>
+
+<a href="/Logout" class="btn btn-danger">Logout</a>

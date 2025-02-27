@@ -20,13 +20,21 @@ public class AddModel : PageModel
     {
         if (!ModelState.IsValid) return Page();
 
-        var result = await _authService.RegisterUser(Input.Username, Input.Password);
+        var result = await _authService.RegisterUser(
+            Input.FirstName,
+            Input.LastName,
+            Input.Email,
+            Input.DateOfBirth,
+            Input.CompanyName,
+            Input.Username,
+            Input.Password
+            );
         if (result.Contains("already exists"))
         {
             Message = result;
             return Page();
         }
 
-        return RedirectToPage("/Account/Login");
+        return RedirectToPage("/Login");
     }
 }
