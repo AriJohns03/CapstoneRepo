@@ -6,7 +6,8 @@ public class LogoutModel : PageModel
 {
     public IActionResult OnGet()
     {
-        HttpContext.Session.Remove("AuthToken"); // Remove JWT Token from session
-        return RedirectToPage("/Login");
+        Response.Cookies.Delete("AuthToken"); // Deletes the JWT cookie
+        HttpContext.Session.Clear();
+        return RedirectToPage("Login");
     }
 }

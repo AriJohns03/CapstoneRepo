@@ -42,6 +42,14 @@ public class AuthController : ControllerBase
 
         return Ok(new { token });
     }
+
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        Response.Cookies.Delete("AuthToken"); // Deletes the JWT cookie
+        HttpContext.Session.Clear();
+        return RedirectToPage("/Login");
+    }
 }
 
 public class LoginDto
