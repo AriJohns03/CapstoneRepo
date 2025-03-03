@@ -19,15 +19,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Event" asp-action="Add">Add Event</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Event" asp-action="EventCollection">Events List</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-page="/Profile">Profile</a>
-                        </li>
                         <br />
                         <form class="d-flex" asp-controller="Event" asp-action="Search" method="post">
                             <input name="inSearch" class="form-control me-2" type="search" placeholder="Search" />
@@ -53,6 +44,15 @@
                     {
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-page="/Profile">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Event" asp-action="Add">Add Event</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Event" asp-action="EventCollection">Events List</a>
                         </li>
                         <li class="nav-item">
                             <form method="get" asp-page="/Logout">

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Capstone1.Controllers
 {
-    [Authorize]
     public class EventController : Controller
     {
         private IDataAccessLayer dal;

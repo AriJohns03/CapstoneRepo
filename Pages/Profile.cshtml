@@ -1,43 +1,33 @@
-﻿@page
-@{
-    ViewData["Title"] = "Profile Page";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@* @page *@
+@* @{ *@
+@*     ViewData["Title"] = "Profile"; *@
+@* } *@
+@* <h1>@ViewData["Title"]</h1> *@
+@* <h2>User Profile</h2> *@
 
-<div>
-    <div>
-        <label>First Name</label>
-        @* <span>@e.name</span> *@
-    </div>
-    <div">
-        <label>Last Name</label>
-        <span>Doe</span>
-    </div>
-    <div>
-        <label>Company Name</label>
-        <span>Neumont Corporation</span>
-    </div>
-    <div>
-        <label>Username</label>
-        <span>johndoe</span>
-    </div>
-    <div>
-        <button class="btn" action="edit_Profile">Edit</button>
-    </div>
-    <div>
-    <h2>Posts Should Show Here </h2>
-    <div id="posts">
-        </br>
-        <div class="post">
-            <h3>Post Title 1</h3>
-            </br>
-            <p>This is the content of the first post.</p>
-        </div>
-        </br>
-        <div class="post">
-            <h3>Post Title 2</h3>
-            </br>
-            <p>This is the content of the second post.</p>
-        </div>
-    </div>
-</div>
+@* <table class="table"> *@
+@*     <tr> *@
+@*         <th>Username:</th> *@
+@*         <td>@Model.Username</td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <th>First Name:</th> *@
+@*         <td>@Model.FirstName</td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <th>Last Name:</th> *@
+@*         <td>@Model.LastName</td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <th>Date of Birth:</th> *@
+@*         <td>@Model.DateOfBirth.ToShortDateString()</td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <th>Email:</th> *@
+@*         <td>@Model.Email</td> *@
+@*     </tr> *@
+@*     <tr> *@
+@*         <th>Company:</th> *@
+@*         <td>@Model.CompanyName</td> *@
+@*     </tr> *@
+@* </table> *@

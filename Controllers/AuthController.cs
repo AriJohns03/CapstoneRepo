@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Capstone1.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
@@ -7,10 +10,12 @@ using System.Threading.Tasks;
 public class AuthController : ControllerBase
 {
     private readonly AuthService _authService;
+    private readonly AppDBContext context;
 
-    public AuthController(AuthService authService)
+    public AuthController(AuthService authService, AppDBContext _context)
     {
         _authService = authService;
+        _context = context;
     }
 
     [HttpPost("register")]
@@ -50,6 +55,38 @@ public class AuthController : ControllerBase
         HttpContext.Session.Clear();
         return RedirectToPage("/Login");
     }
+
+    //[Authorize]
+    //[HttpGet("profile")]
+    //public async Task<IActionResult> GetProfile()
+    //{
+    //    var username = User.Identity?.Name; // Get username from JWT
+
+    //    if (string.IsNullOrEmpty(username))
+    //    {
+    //        return Unauthorized(new { message = "User is not authenticated" });
+    //    }
+
+    //    var user = await context.Users.FirstOrDefaultAsync(u => u.Username == username);
+
+    //    if (user == null)
+    //    {
+    //        return NotFound(new { message = "User not found" });
+    //    }
+
+    //    var userDto = new UserDto
+    //    {
+    //        Username = user.Username,
+    //        FirstName = user.FirstName,
+    //        LastName = user.LastName,
+    //        DateOfBirth = user.DateOfBirth,
+    //        Email = user.Email,
+    //        CompanyName = user.CompanyName
+    //    };
+
+    //    return View(userDto); // Return a view with the user's profile data
+    //}
+
 }
 
 public class LoginDto
